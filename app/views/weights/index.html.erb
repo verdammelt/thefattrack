@@ -1,0 +1,19 @@
+<h1>Weights</h1>
+(from db: <%= @todays_weight.new_record? %>)
+
+<p>
+<%= form_for @todays_weight do |f| %>
+<%= f.label :date, "Today's date: " %>
+<%= f.label :date, @todays_weight.date %><br>
+
+<%= f.label :trend, "Curent trend: " %>
+<%= f.label :trend, @todays_weight.trend || "<none yet>" %><br>
+
+<%= f.label :weight, "Today's Weight: " %>
+<%= f.text_field :weight %>
+
+<p />
+
+    <%= f.submit %>
+<% end %>
+</p>
