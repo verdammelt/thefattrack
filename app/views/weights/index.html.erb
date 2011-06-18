@@ -1,0 +1,6 @@
+<%= form_for @today do |f| %>
+  <%= f.label :trend, @today.trend || '<none yet>', 
+    :id => "weight_trend" %><br>
+  <%= f.text_field :weight %><br>
+  <%= f.submit "Save" %>
+<% end %>

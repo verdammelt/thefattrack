@@ -1,4 +1,5 @@
 Thinner::Application.routes.draw do
+  resources :weights
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
