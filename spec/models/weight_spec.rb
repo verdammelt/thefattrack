@@ -19,7 +19,8 @@ describe Weight do
   end
 
   it "calculates trend when weight is set" do
-    w = Weight.new(:weight => 190, :trend => 190)
+    Weight.create(:date => Date.today.prev_day, :trend => 190)
+    w = Weight.new(:date => Date.today, :weight => 190)
     w.weight = 200
     w.trend.should == 191
   end
@@ -33,9 +34,16 @@ describe Weight do
     Weight.new(:weight => 190).trend.should == 190
   end
 
+  it "always calculates new trend based upon old trend" do
+    Weight.create :date => Date.today.prev_day, :trend => 200
+    w = Weight.create :date => Date.today, :weight => 190, :trend => 199
+    w.weight = 190
+    w.trend.should == 199
+  end
+
   it "trend calculation handles nil ok" do
     w = Weight.new(:weight => 100)
     w.weight = 90
-    w.trend.should == 99
+    w.trend.should == 90
   end
 end

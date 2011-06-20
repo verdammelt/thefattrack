@@ -10,12 +10,12 @@ Feature: Entering Today's Weight
     Then I see that the Current Trend is 199
 
   Scenario: Entering today's weight several times when there is no other data does not change trend
-    Given there is no other data
+    Given that the previous trend weight was 200
     And I enter 190 as today's weight
     And I click Save
     And I enter 190 as today's weight
     When I click Save
-    Then I see that the Current Trend is 190
+    Then I see that the Current Trend is 199
 
 #  Scenario: Entering the weight changes current weight
 #    Given that today's weight is 200
