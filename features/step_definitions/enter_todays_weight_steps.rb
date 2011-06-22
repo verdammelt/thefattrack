@@ -12,9 +12,6 @@ When /^I click Save$/ do
 end
 
 Then /^I see that the Current Trend is (\d+)$/ do |trend|
-  if page.respond_to? :should
-    page.should have_content trend
-  else
-    assert page.has_content? trend
-  end
+  label = find_by_id('weight_trend')
+  label.text.should match(/^#{trend}/)
 end
