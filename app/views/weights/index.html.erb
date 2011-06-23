@@ -1,5 +1,6 @@
 <%= form_for @today do |f| %>
-  Enter Today's Weight: <%= f.text_field :weight, :size => 5 %>
+  <%= f.label :weight, "Enter Today's Weight" %>
+  <%= f.text_field :weight, :size => 5 %>
   <%= f.submit "Save" %> 
   <br>
   Trend: <%= f.label :trend, @today.trend, :id => 'weight_trend' %>
