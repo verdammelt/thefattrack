@@ -1,1 +1,13 @@
 - fix the 'regexp match... utf-8 string' warning
+- trend weight precision
+- editing weights after entry
+- notes on weights
+- graph
+- bmi calc
+- click graph to get details of weight/notes
+- export csv data
+- import csv data
+- user prefs (for BMI, weight averaging ...)
+- compute when goal will be reached
+- show goal weight
+
