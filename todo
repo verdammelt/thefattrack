@@ -14,4 +14,4 @@
 - compute when goal will be reached
 - show goal weight
 - deploy on heroku or similar site
-
+- add flog/flay/etc to rake to use easily
