@@ -1,4 +1,5 @@
 - solidify MMF with good tests
+- limit precision on trend
 - add email address to page
 - fix the 'regexp match... utf-8 string' warning
 - trend weight precision
