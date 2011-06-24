@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe WeightsController do
   let(:weight) { mock_model("Weight") }
-  let(:all_weights) { [mock_model("Weight", :date => Date.today), mock_model("Weight", :date => Date.today.next_day)]}
+  let(:recent_weights) { [mock_model("Weight", :date => Date.today), mock_model("Weight", :date => Date.today.next_day)]}
 
   before do
     Weight.stub(:today => weight)
-    Weight.stub(:find).with(:all).and_return(all_weights)
+    Weight.stub(:find).with(:all).and_return(recent_weights)
   end
 
   describe "GET index" do
@@ -15,9 +15,9 @@ describe WeightsController do
       assigns[:today].should == weight
     end
     
-    it "sets all_weights to reverse order" do
+    it "sets recent_weights to reverse order" do
       get :index
-      assigns[:all_weights].should == all_weights.reverse
+      assigns[:recent_weights].should == recent_weights.reverse
     end
   end
 end

@@ -1,5 +1,5 @@
 <%= form_for @today do |f| %>
-  <%= f.label :weight, "Enter Today's Weight" %>
+  <%= f.label :weight, "Today's Weight:" %>
   <%= f.text_field :weight, :size => 5 %>
   <%= f.submit "Save" %> 
   <br>
@@ -7,17 +7,18 @@
 <% end %>
 
 <p />
-<table name="all_weights_table">
+<table id="recent_weights">
+  <caption>Recent Weights</caption>
   <tr>
     <th>Date</th>
     <th>Weight</th>
     <th>Trend</th>
   </tr>
-<% @all_weights.each do | w | %>
+  <% @recent_weights.each do | w | %>
   <tr>
     <td><%= w.date %></td>
     <td><%= w.weight %></td>
     <td><%= w.trend %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>

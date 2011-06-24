@@ -4,7 +4,7 @@ end
 
 Given /^I enter (\d+) as today's weight$/ do |weight|
   visit weights_path
-  fill_in "Enter Today's Weight", :with => weight
+  fill_in "Today's Weight:", :with => weight
 end
 
 When /^I click Save$/ do
