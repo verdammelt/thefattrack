@@ -1,3 +1,5 @@
+- solidify MMF with good tests
+- add email address to page
 - fix the 'regexp match... utf-8 string' warning
 - trend weight precision
 - editing weights after entry
@@ -10,4 +12,5 @@
 - user prefs (for BMI, weight averaging ...)
 - compute when goal will be reached
 - show goal weight
+- deploy on heroku or similar site
 
