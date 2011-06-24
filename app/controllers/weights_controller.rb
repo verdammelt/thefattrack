@@ -1,6 +1,7 @@
 class WeightsController < ApplicationController
   def index
     @today = Weight.today
+    @all_weights = Weight.find(:all).reverse
   end
 
   def update

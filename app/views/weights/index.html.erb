@@ -7,13 +7,13 @@
 <% end %>
 
 <p />
-<table>
+<table name="all_weights_table">
   <tr>
     <th>Date</th>
     <th>Weight</th>
     <th>Trend</th>
   </tr>
-<% Weight.find(:all).reverse.each do | w | %>
+<% @all_weights.each do | w | %>
   <tr>
     <td><%= w.date %></td>
     <td><%= w.weight %></td>
