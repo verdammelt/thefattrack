@@ -27,6 +27,6 @@ class Weight < ActiveRecord::Base
 
   def self.latest_trend
     latest = Weight.order("date desc").first
-    latest.trend || latest
+    return latest.trend unless latest.nil?
   end
 end

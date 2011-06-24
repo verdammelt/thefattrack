@@ -6,7 +6,7 @@ class WeightsController < ApplicationController
 
   def update
     @today = Weight.today
-    @today.weight = params[:weight][:weight].to_f
+    @today.weight = params[:weight][:weight].to_f 
     @today.save
     redirect_to weights_path
   end
