@@ -1,17 +1,18 @@
-- solidify MMF with good tests
-- limit precision on trend
 - add email address to page
+- deploy on heroku or similar site
+- graph
 - fix the 'regexp match... utf-8 string' warning
-- trend weight precision
 - editing weights after entry
 - notes on weights
-- graph
 - bmi calc
 - click graph to get details of weight/notes
 - export csv data
-- import csv data
 - user prefs (for BMI, weight averaging ...)
 - compute when goal will be reached
+- import csv data
+- export csv data
 - show goal weight
-- deploy on heroku or similar site
 - add flog/flay/etc to rake to use easily
+- multiple users
+- base page redirects to index
+- about page
