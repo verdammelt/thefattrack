@@ -17,6 +17,12 @@ Feature: Entering Today's Weight
     When I click Save
     Then I see that the Current Trend is 199
 
+  Scenario: Trend weight is rounded to 2 decimal places
+    Given that the previous trend weight was 190.55
+    And I enter 191.1 as today's weight
+    And I click Save
+    Then I see that the Current Trend is 190.61
+
 #  Scenario: Entering the weight changes current weight
 #    Given that today's weight is 200
 #    And I enter 190 as today's weight

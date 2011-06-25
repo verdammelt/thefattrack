@@ -15,6 +15,13 @@ describe 'weights/index.html.erb' do
     rendered.should contain("Trend: 190.0")
   end
 
+  it 'rounds trend to 2 decimal places' do
+    weight.stub :trend => 190.005
+
+    render
+    rendered.should contain("Trend: 190.01")
+  end
+
   it 'renders form to enter todays weight' do
     weight.stub :weight => 190.0
 
@@ -32,6 +39,15 @@ describe 'weights/index.html.erb' do
 
     render
 
-    rendered.should have_table "Recent Weights", :rows => [["2000-01-01", "100", "200"], ["1970-09-11", "10", "9"]]
+    rendered.should have_table "Recent Weights", :rows => [["2000-01-01", "100", "200.0"], ["1970-09-11", "10", "9.0"]]
+  end
+
+  it "rounds trend in list to 2 decimal places" do
+    weight.stub(:date => Date.new(2000,1,1), :weight => 100, :trend => 100.005)
+    assign :recent_weights, [weight]
+    
+    render
+
+    rendered.should have_table "Recent Weights", :rows => [["2000-01-01", "100", "100.01"]]
   end
 end

@@ -3,7 +3,7 @@
   <%= f.text_field :weight, :size => 5 %>
   <%= f.submit "Save" %> 
   <br>
-  Trend: <%= f.label :trend, @today.trend, :id => 'weight_trend' %>
+  Trend: <%= f.label :trend, round_for_display(@today.trend), :id => 'weight_trend' %>
 <% end %>
 
 <p />
@@ -18,7 +18,7 @@
   <tr>
     <td><%= w.date %></td>
     <td><%= w.weight %></td>
-    <td><%= w.trend %></td>
+    <td><%= round_for_display(w.trend) %></td>
   </tr>
   <% end %>
 </table>
