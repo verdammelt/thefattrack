@@ -4,8 +4,14 @@ describe 'weights/index.html.erb' do
   let(:weight) { mock_model("Weight").as_null_object }
 
   before do
-     assign :today, weight
+    assign :today, weight
     assign :recent_weights, []
+  end
+
+  it 'is ok when there is no data at all in the db' do
+    weight.stub :weight => nil
+    weight.stub :trend => nil
+    render
   end
 
   it 'displays todays trend' do

@@ -5,10 +5,6 @@ Given /^that the following data exists$/ do |table|
     :trend => data[:trend].to_f() }
 end
 
-When /^I view the index page$/ do
-  visit weights_path
-end
-
 Then /^the Recent Weights table will show$/ do |expected|
   expected.diff!(actual_recent_weights_table)
 end

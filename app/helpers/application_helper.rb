@@ -1,5 +1,6 @@
 module ApplicationHelper
   def round_for_display f
-    f.round(2)
+    return f.round(2) unless f.nil?
+    nil
   end
 end

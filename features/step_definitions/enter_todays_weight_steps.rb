@@ -3,7 +3,6 @@ Given /^that the previous trend weight was ([\d.]+)$/ do |trend|
 end
 
 Given /^I enter ([\d.]+) as today's weight$/ do |weight|
-  visit weights_path
   fill_in "Today's Weight:", :with => weight
 end
 
