@@ -1,6 +1,7 @@
-- add email address to page
-- deploy on heroku or similar site
 - graph
+- add email address to page
+- about page
+- deploy on heroku or similar site
 - fix the 'regexp match... utf-8 string' warning
 - editing weights after entry
 - notes on weights
@@ -14,5 +15,3 @@
 - show goal weight
 - add flog/flay/etc to rake to use easily
 - multiple users
-- base page redirects to index
-- about page
