@@ -10,4 +10,8 @@ class WeightsController < ApplicationController
     @today.save
     redirect_to weights_path
   end
+
+  def create
+    update
+  end
 end

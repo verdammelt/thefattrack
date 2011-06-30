@@ -11,6 +11,5 @@ end
 
 def actual_recent_weights_table
   table = tableish('table#recent_weights tr', 'td,th')
-  table.delete_at(1)
   table
 end

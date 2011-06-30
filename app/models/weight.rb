@@ -9,7 +9,7 @@ class Weight < ActiveRecord::Base
   end
 
   def self.today
-    Weight.find_or_create_by_date Date.today do |w|
+    Weight.find_or_initialize_by_date Date.today do |w|
       w.trend = latest_trend
     end
   end

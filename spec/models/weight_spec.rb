@@ -10,12 +10,12 @@ describe Weight do
       today.weight.should == 500
     end
     
-    it "creates todays weight if needed" do
+    it "initializes (but not creates) a new weight for today if needed" do
       today = Weight.today
-      today.new_record?.should be_false
+      today.new_record?.should be_true
       today.date.should == Date.today
       today.weight.should be_nil
-      Weight.find_by_date(Date.today).should_not be_nil
+      Weight.find_by_date(Date.today).should be_nil
     end
     
     it "trend set to latest trend weight" do
