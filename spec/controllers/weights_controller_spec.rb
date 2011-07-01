@@ -6,7 +6,7 @@ describe WeightsController do
   
   before do
     Weight.stub(:today => weight)
-    Weight.stub(:find).with(:all).and_return(recent_weights)
+    Weight.stub(:recent => recent_weights)
   end
   
   describe "GET index" do
@@ -15,9 +15,9 @@ describe WeightsController do
       assigns[:today].should == weight
     end
     
-    it "sets recent_weights to reverse order" do
+    it "sets recent_weights what the model says is recent" do
       get :index
-      assigns[:recent_weights].should == recent_weights.reverse
+      assigns[:recent_weights].should == recent_weights
     end
   end
 

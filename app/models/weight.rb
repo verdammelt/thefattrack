@@ -1,4 +1,6 @@
 class Weight < ActiveRecord::Base
+  scope :recent, order("date DESC")
+
   def weight= new_weight
     self[:weight] = new_weight
     self[:trend] = compute_trend Weight.previous_trend, new_weight
@@ -21,12 +23,12 @@ class Weight < ActiveRecord::Base
   end
 
   def self.previous_trend
-    prev = Weight.order("date desc").find { |w| w.date < Date.today }
-    return prev.trend unless prev.nil?
+    previous = recent.find { |w| w.date < Date.today }
+    return previous.trend unless previous.nil?
   end
 
   def self.latest_trend
-    latest = Weight.order("date desc").first
+    latest = recent.first
     return latest.trend unless latest.nil?
   end
 end

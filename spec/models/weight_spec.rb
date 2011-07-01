@@ -53,4 +53,16 @@ describe Weight do
       w.trend.should == 90
     end
   end
+
+  context "recent weights" do
+    it "they are in order by date (newest first)" do
+      Weight.create :date => Date.today.prev_day
+      Weight.create :date => Date.today
+      Weight.create :date => Date.today.prev_day.prev_day
+      Weight.create :date => Date.today.next_day
+
+      Weight.recent.collect {|d| d.date }.should ==
+        [Date.today.next_day, Date.today, Date.today.prev_day, Date.today.prev_day.prev_day]
+    end
+  end
 end

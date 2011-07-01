@@ -1,8 +1,7 @@
-- with no data screen shows blank weight on 'recent' weights list
-- mass creation of data means that recent weights not in right order
 - graph
 - add email address to page
 - about page
+- git readme page
 - fix the 'regexp match... utf-8 string' warning
 - editing weights after entry
 - notes on weights
