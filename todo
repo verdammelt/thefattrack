@@ -1,17 +1,21 @@
+- editing weights after entry
+- entering old weights
+- deal with possibility that weight.save fails
 - graph
 - add email address to page
 - about page
 - git readme page
 - fix the 'regexp match... utf-8 string' warning
-- editing weights after entry
 - notes on weights
 - bmi calc
 - click graph to get details of weight/notes
-- export csv data
 - user prefs (for BMI, weight averaging ...)
 - compute when goal will be reached
 - import csv data
 - export csv data
-- show goal weight
+- show goal weight (and goal date)
 - add flog/flay/etc to rake to use easily
 - multiple users
+- coverage
+- flog/flay/roodi/reek to keep code clean
+- logo from wendy
