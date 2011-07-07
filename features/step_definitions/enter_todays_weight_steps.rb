@@ -3,7 +3,7 @@ Given /^that the previous trend weight was ([\d.]+)$/ do |trend|
 end
 
 Given /^I enter ([\d.]+) as today's weight$/ do |weight|
-  fill_in "Today's Weight:", :with => weight
+  fill_in :weight_weight, :with => weight
 end
 
 When /^I click Save$/ do

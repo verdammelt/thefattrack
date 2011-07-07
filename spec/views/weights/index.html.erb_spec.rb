@@ -16,24 +16,35 @@ describe 'weights/index.html.erb' do
 
   it 'displays todays trend' do
     weight.stub :trend => 190.0
-
     render
-    rendered.should contain("Trend: 190.0")
+    trend_should_be "190.0"
   end
+
 
   it 'rounds trend to 2 decimal places' do
     weight.stub :trend => 190.005
-
     render
-    rendered.should contain("Trend: 190.01")
+    trend_should_be "190.01"
+  end
+
+  def trend_should_be trend
+    rendered.should have_selector "label", :id => "weight_trend" do |label|
+      label.should contain(trend)
+    end
   end
 
   it 'renders form to enter todays weight' do
     weight.stub :weight => 190.0
+    weight.stub :date => Date.parse("2011-07-04")
+    weight.stub :trend => 191.0
 
     render
     rendered.should have_selector "form", :method => "post", :action => weight_path(weight) do |form|
+      form.should have_selector "label", :id => "weight_date" do |label|
+        label.should contain "2011-07-04"
+      end
       form.should have_selector "input", :type => "text", :name => "weight[weight]", :value => "190.0"
+      trend_should_be "191.0"
       form.should have_selector "input", :type => "submit"
     end
   end
