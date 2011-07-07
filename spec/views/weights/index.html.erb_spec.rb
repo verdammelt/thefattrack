@@ -14,23 +14,10 @@ describe 'weights/index.html.erb' do
     render
   end
 
-  it 'displays todays trend' do
-    weight.stub :trend => 190.0
-    render
-    trend_should_be "190.0"
-  end
-
-
   it 'rounds trend to 2 decimal places' do
     weight.stub :trend => 190.005
     render
     trend_should_be "190.01"
-  end
-
-  def trend_should_be trend
-    rendered.should have_selector "label", :id => "weight_trend" do |label|
-      label.should contain(trend)
-    end
   end
 
   it 'renders form to enter todays weight' do
@@ -40,12 +27,26 @@ describe 'weights/index.html.erb' do
 
     render
     rendered.should have_selector "form", :method => "post", :action => weight_path(weight) do |form|
-      form.should have_selector "label", :id => "weight_date" do |label|
-        label.should contain "2011-07-04"
-      end
-      form.should have_selector "input", :type => "text", :name => "weight[weight]", :value => "190.0"
-      trend_should_be "191.0"
+      date_should_be "2011-07-04", form
+      weight_should_be "190.0", form
+      trend_should_be "191.0", form
       form.should have_selector "input", :type => "submit"
+    end
+  end
+
+  def date_should_be date, scope = rendered
+    scope.should have_selector "label", :id => "weight_date" do |label|
+      label.should contain date
+    end
+  end
+
+  def weight_should_be weight, scope = rendered
+    scope.should have_selector "input", :type => "text", :name => "weight[weight]", :value => "190.0"
+  end
+
+  def trend_should_be trend, scope = rendered
+    scope.should have_selector "label", :id => "weight_trend" do |label|
+      label.should contain(trend)
     end
   end
 
