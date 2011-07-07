@@ -19,3 +19,5 @@
 - coverage
 - flog/flay/roodi/reek to keep code clean
 - logo from wendy
+- autotest runs cucumber too
+- merge todays weight input into recent weights
