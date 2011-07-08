@@ -1,5 +1,5 @@
 class Weight < ActiveRecord::Base
-  scope :recent, order("date DESC")
+  scope :recent, order("date DESC").where("date != ?", Date.today)
 
   def weight= new_weight
     self[:weight] = new_weight

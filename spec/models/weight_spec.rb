@@ -62,7 +62,7 @@ describe Weight do
       Weight.create :date => Date.today.next_day
 
       Weight.recent.collect {|d| d.date }.should ==
-        [Date.today.next_day, Date.today, Date.today.prev_day, Date.today.prev_day.prev_day]
+        [Date.today.next_day, Date.today.prev_day, Date.today.prev_day.prev_day]
     end
   end
 end
