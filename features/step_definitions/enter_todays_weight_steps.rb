@@ -6,11 +6,20 @@ Given /^I enter ([\d.]+) as today's weight$/ do |weight|
   fill_in :weight_weight, :with => weight
 end
 
+Given /^that today's weight is (\d+)$/ do |weight|
+  Weight.new(:date => Date.today, :weight => weight.to_f).save
+end
+
 When /^I click Save$/ do
   click_button "Save"
 end
 
 Then /^I see that the Current Trend is ([\d.]+)$/ do |trend|
-  label = find_by_id('weight_trend')
-  label.text.should match(/^#{trend}/)
+  label = find_by_id :weight_trend
+  label.text.should =~ /^#{trend}/
+end
+
+Then /^I see that today's weight is (\d+)$/ do |weight|
+  field = find_field :weight_weight
+  field.value.should =~ /#{weight}/
 end

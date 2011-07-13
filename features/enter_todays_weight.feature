@@ -26,9 +26,12 @@ Feature: Entering Today's Weight
     And I click Save
     Then I see that the Current Trend is 190.61
 
-#  Scenario: Entering the weight changes current weight
-#    Given that today's weight is 200
-#    And I enter 190 as today's weight
-#    When I click Save
-#    Then I see that today's weight is 190
+  Scenario: Entering a new weight changes current weight and trend
+    Given that the previous trend weight was 200
+    And that today's weight is 200
+    And I go to the weights page
+    And I enter 190 as today's weight
+    When I click Save
+    Then I see that today's weight is 190
+    And I see that the Current Trend is 199
 
