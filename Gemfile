@@ -35,4 +35,6 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'webrat'
+  gem 'escape_utils'
+  gem 'launchy'
 end
