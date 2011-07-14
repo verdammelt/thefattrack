@@ -5,7 +5,6 @@
 - add email address to page
 - about page
 - git readme page
-- fix the 'regexp match... utf-8 string' warning
 - notes on weights
 - bmi calc
 - click graph to get details of weight/notes
@@ -19,5 +18,5 @@
 - coverage
 - flog/flay/roodi/reek to keep code clean
 - logo from wendy
-- autotest runs cucumber too
 - merge todays weight input into recent weights
+- fix problem with autotest & cucumber
