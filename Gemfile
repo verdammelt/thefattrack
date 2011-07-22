@@ -37,4 +37,5 @@ group :development, :test do
   gem 'webrat'
   gem 'escape_utils'
   gem 'launchy'
+  gem 'timecop'
 end
