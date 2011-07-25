@@ -55,7 +55,7 @@ describe 'weights/index.html.erb' do
 
     render
 
-    rendered.should have_table "Recent Weights", :rows => [["2000-01-01", "100", "200.0"], ["1970-09-11", "10", "9.0"]]
+    rendered.should have_table "recent_weights", :rows => [["2000-01-01", "100", "200.0"], ["1970-09-11", "10", "9.0"]]
   end
 
   it "rounds trend in list to 2 decimal places" do
@@ -64,6 +64,6 @@ describe 'weights/index.html.erb' do
     
     render
 
-    rendered.should have_table "Recent Weights", :rows => [["2000-01-01", "100", "100.01"]]
+    rendered.should have_table "recent_weights", :rows => [["2000-01-01", "100", "100.01"]]
   end
 end
