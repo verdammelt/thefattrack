@@ -15,6 +15,7 @@ Feature: Entering Prior Day's Weights
     Then I see that the Current Trend is 189
     And the Recent Weights table will show
       | Date       | Weight | Trend | 
+      |            |        | 189.0 |
       | 2001-01-02 | 189.0  | 189.0 |
       | 2001-01-01 | 189.0  | 189.0 |
 

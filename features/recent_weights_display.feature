@@ -13,6 +13,7 @@ Feature: Recent Weights Display
     When I go to the weights page
     Then the Recent Weights table will show
       | Date       | Weight   | Trend     |
+      |            |          | 190.0       |
       | 2001-01-04 | 187.0    | 189.44    |
       | 2001-01-03 | 188.0    | 189.71    |
       | 2001-01-02 | 189.0    | 189.99    |
@@ -24,6 +25,7 @@ Feature: Recent Weights Display
     When I go to the weights page
     Then the Recent Weights table will show
     | Date | Weight | Trend |
+    |      |        | Trend |
 
 
     

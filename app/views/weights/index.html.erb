@@ -1,18 +1,19 @@
-<%= form_for @today do |f| %>
-  <%= f.text_field :date, :size => 10 %>
-  <%= f.text_field :weight, :size => 5 %>
-  <%= f.label :trend, round_for_display(@today.trend), :id => 'weight_trend' %>
-  <%= f.submit "Save" %> 
-<% end %>
-
-<p />
 <table id="recent_weights">
-  <caption>Recent Weights</caption>
+  <caption>The Fat Track</caption>
   <tr>
     <th>Date</th>
     <th>Weight</th>
     <th>Trend</th>
+    <th></th>
   </tr>
+<%= form_for @today do |f| %>
+  <tr>
+    <td><%= f.text_field :date, :size => 10 %></td>
+    <td><%= f.text_field :weight, :size => 5 %></td>
+    <td><%= f.label :trend, round_for_display(@today.trend), :id => 'weight_trend' %></td>
+    <td><%= f.submit "Save" %> </td>
+  </tr>
+<% end %>
   <% @recent_weights.each do | w | %>
   <tr>
     <td><%= w.date %></td>
