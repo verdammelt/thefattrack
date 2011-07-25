@@ -5,13 +5,17 @@ class WeightsController < ApplicationController
   end
 
   def update
-    new_weight = params[:weight][:weight].to_f
-    new_date = params[:weight][:date] || Date.today.to_s
-    Weight.update_weight(Date.parse(new_date), new_weight)
+    weight, date = massage_params
+    Weight.update_weight(Date.parse(date), weight)
     redirect_to weights_path
   end
 
   def create
     update
+  end
+
+  private
+  def massage_params
+    [params[:weight][:weight].to_f, params[:weight][:date] || Date.today.to_s]
   end
 end
