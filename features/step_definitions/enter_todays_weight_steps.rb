@@ -3,7 +3,7 @@ Given /^that the previous trend weight was ([\d.]+)$/ do |trend|
 end
 
 Given /^I enter ([\d.]+) as today's weight$/ do |weight|
-  fill_in :weight_weight, :with => weight
+  fill_in "weight[weight]", :with => weight
 end
 
 Given /^that today's weight is (\d+)$/ do |weight|
@@ -20,6 +20,6 @@ Then /^I see that the Current Trend is ([\d.]+)$/ do |trend|
 end
 
 Then /^I see that today's weight is (\d+)$/ do |weight|
-  field = find_field :weight_weight
+  field = find_by_id :weight_weight
   field.value.should =~ /#{weight}/
 end

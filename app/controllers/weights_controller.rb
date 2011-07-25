@@ -5,9 +5,9 @@ class WeightsController < ApplicationController
   end
 
   def update
-    @today = Weight.today
-    @today.weight = params[:weight][:weight].to_f 
-    @today.save
+    new_weight = params[:weight][:weight].to_f
+    new_date_str = params[:weight][:date] || Date.today.to_s
+    Weight.update_weight(Date.parse(new_date_str), new_weight)
     redirect_to weights_path
   end
 

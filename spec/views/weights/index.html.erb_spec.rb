@@ -35,13 +35,11 @@ describe 'weights/index.html.erb' do
   end
 
   def date_should_be date, scope = rendered
-    scope.should have_selector "label", :id => "weight_date" do |label|
-      label.should contain date
-    end
+    scope.should have_selector "input", :type => "text", :id => "weight_date", :value => date
   end
 
   def weight_should_be weight, scope = rendered
-    scope.should have_selector "input", :type => "text", :name => "weight[weight]", :value => "190.0"
+    scope.should have_selector "input", :type => "text", :id => "weight_weight", :value => weight
   end
 
   def trend_should_be trend, scope = rendered

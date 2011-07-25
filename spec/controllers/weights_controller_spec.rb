@@ -23,15 +23,14 @@ describe WeightsController do
 
   describe "PUT update" do
     it "sets today's weight" do
-      weight.as_null_object
       weight.stub(:date).and_return(Date.today.prev_day)
-      Weight.should_receive(:today)
-      weight.should_recieve(:save).with(:weight => 190.5, :date => Date.today.prev_day)
-      put :update, :id => 1, :weight => { "weight" => "190.5" }
+      Weight.should_not_receive(:today)
+      Weight.should_receive(:update_weight).with(Date.today.prev_day, 190.5)
+      put :update, :id => 1, :weight => { "weight" => "190.5", "date" => Date.today.prev_day.to_s }
     end
 
     it "redirects to index page" do
-      weight.as_null_object
+      Weight.stub(:update_weight)
       put :update, :id => 1, :weight => {"weight" => "0"}
       response.should redirect_to(weights_path)
     end

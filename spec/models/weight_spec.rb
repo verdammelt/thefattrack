@@ -65,4 +65,38 @@ describe Weight do
         [Date.today.next_day, Date.today.prev_day, Date.today.prev_day.prev_day]
     end
   end
+
+  context "#update_weight" do
+    it "saves a new weight" do
+      expected_date = Date.parse("2001-01-01")
+      Weight.update_weight(expected_date, 190)
+      Weight.find_by_date(expected_date).should_not be_nil
+    end
+
+    it "updates an existing weight" do
+      expected_date = Date.parse("2001-01-01")
+      Weight.create :date => expected_date, :weight => 100, :trend => 100
+      Weight.update_weight(expected_date, 190)
+      Weight.find_by_date(expected_date).weight.should == 190
+      Weight.find_by_date(expected_date).trend.should == 190
+    end
+
+    it "sets trend on saved weight correctly" do
+      Weight.create :date => Date.today.prev_day.prev_day, :weight => 190, :trend => 190
+      Weight.create :date => Date.today.prev_day, :weight => 190, :trend => 190
+
+      Weight.update_weight Date.today.prev_day, 189
+
+      Weight.find_by_date(Date.today.prev_day).trend.should == 189.9
+    end
+
+    it "updates all trends newer than saved weight" do
+      Weight.create :date => Date.today.prev_day, :weight => 190, :trend => 190
+      Weight.create :date => Date.today, :weight => 189, :trend => 189.9
+
+      Weight.update_weight(Date.today.prev_day, 189)
+
+      Weight.find_by_date(Date.today).trend.should == 189
+    end
+  end
 end
