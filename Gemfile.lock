@@ -59,6 +59,8 @@ GEM
     ffi (1.0.9)
     gherkin (2.4.1)
       json (>= 1.4.6)
+    gvis (2.0.3)
+      json
     i18n (0.5.0)
     json (1.5.3)
     json_pure (1.5.3)
@@ -134,6 +136,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   escape_utils
+  gvis (>= 2.0.0)
   launchy
   rails (= 3.0.9)
   rake

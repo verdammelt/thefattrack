@@ -1,24 +1,29 @@
-<table id="recent_weights">
-  <caption>The Fat Track</caption>
-  <tr>
-    <th>Date</th>
-    <th>Weight</th>
-    <th>Trend</th>
-    <th></th>
-  </tr>
-<%= form_for @today do |f| %>
-  <tr>
-    <td><%= f.text_field :date, :size => 10 %></td>
-    <td><%= f.text_field :weight, :size => 5 %></td>
-    <td><%= f.label :trend, round_for_display(@today.trend), :id => 'weight_trend' %></td>
-    <td><%= f.submit "Save" %> </td>
-  </tr>
-<% end %>
-  <% @recent_weights.each do | w | %>
-  <tr>
-    <td><%= w.date %></td>
-    <td><%= w.weight %></td>
-    <td><%= round_for_display(w.trend) %></td>
-  </tr>
-  <% end %>
+<table>
+  <td>
+    <table id="recent_weights">
+      <caption>The Fat Track</caption>
+      <tr>
+        <th>Date</th>
+        <th>Weight</th>
+        <th>Trend</th>
+        <th></th>
+      </tr>
+      <%= form_for @today do |f| %>
+        <tr>
+          <td><%= f.text_field :date, :size => 10 %></td>
+          <td><%= f.text_field :weight, :size => 5 %></td>
+          <td><%= f.label :trend, round_for_display(@today.trend), :id => 'weight_trend' %></td>
+          <td><%= f.submit "Save" %> </td>
+        </tr>
+      <% end %>
+      <% @recent_weights.each do | w | %>
+        <tr>
+          <td><%= w.date %></td>
+          <td><%= w.weight %></td>
+          <td><%= round_for_display(w.trend) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </td>
+  <td> <% weight_chart (@recent_weights.reverse << @today) %> </td>
 </table>
