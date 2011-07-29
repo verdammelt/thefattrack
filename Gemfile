@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://gems.github.com'
 
 gem 'rails', '3.0.9'
 
@@ -30,6 +31,7 @@ gem 'sqlite3'
 #   gem 'webrat'
 # end
 gem 'rake'
+gem 'googlecharts'
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
