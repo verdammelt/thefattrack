@@ -1,5 +1,5 @@
 - deal with possibility that weight.save fails
-- graph
+- more careful testing around graph (i.e. javascript type testing)
 - add email address to page
 - about page
 - git readme page
