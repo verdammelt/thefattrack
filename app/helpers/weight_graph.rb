@@ -16,7 +16,13 @@ module WeightGraph
       chart.number 'Weight'
       chart.number 'Trend'
 
-      chart.add_rows(data.collect { |w| [w.date, w.weight, w.trend] })
+      chart.add_rows(data.collect { |w| make_row_data w } )
     end
+  end
+
+  private
+  def make_row_data w
+    trend = w.trend.round(2) unless w.trend.nil?
+    [w.date, w.weight, trend] 
   end
 end

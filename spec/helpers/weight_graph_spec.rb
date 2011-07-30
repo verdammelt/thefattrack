@@ -53,5 +53,14 @@ describe "WeightGraph" do
 
       view.insert_graph [weight1, weight2]
     end
+
+    it "rounds the trend to 2 digits before passing to the charting" do
+      weight = Weight.new(:date => Date.parse('2001-01-01'), :weight => 100, :trend => 3.14159)
+      chart = mock.as_null_object
+      view.should_receive(:visualization).and_yield(chart)
+      chart.should_receive(:add_rows).with([[weight.date, weight.weight, 3.14]])
+
+      view.insert_graph [weight]
+    end
   end
 end
