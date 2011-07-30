@@ -66,4 +66,20 @@ describe 'weights/index.html.erb' do
 
     rendered.should have_table "recent_weights", :rows => [["2000-01-01", "100", "100.01"]]
   end
+
+  context "weight graph" do
+    it "inserts the graph" do
+      view.should_receive(:insert_graph).once
+      render
+    end
+
+    it "passes recent and todays weight to the graph, in the right order" do
+      weight.stub(:date => Date.new(2000, 1, 1), :weight => 100, :trend => 200)
+      mock_weight1 = mock_model("Weight", :date => Date.new(1999, 12, 31), :weight => 100, :trend => 200)
+      mock_weight2= mock_model("Weight", :date => Date.new(1999, 12, 30), :weight => 100, :trend => 200)
+      assign :recent_weights, [mock_weight1, mock_weight2] 
+      view.should_receive(:insert_graph).with([mock_weight2, mock_weight1, weight])
+      render
+    end
+  end
 end

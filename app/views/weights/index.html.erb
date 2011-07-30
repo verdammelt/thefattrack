@@ -25,5 +25,5 @@
   <% end %>
 </table>
 </td>
-<td><%= WeightGraph.insert_graph %></td>
+<td><%= insert_graph @recent_weights.reverse << @today %></td>
 </table>
