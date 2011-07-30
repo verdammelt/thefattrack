@@ -1,9 +1,12 @@
-module ApplicationHelper
+module WeightGraph
   include GoogleVisualization
 
-  def round_for_display f
-    return f.round(2) unless f.nil?
-    nil
+  def weight_chart_setup
+    include_visualization_api
+  end
+
+  def render_chart
+    render_visualizations
   end
 
   def weight_chart data
@@ -16,3 +19,13 @@ module ApplicationHelper
     end
   end
 end
+
+module ApplicationHelper
+  include WeightGraph
+
+  def round_for_display f
+    return f.round(2) unless f.nil?
+    nil
+  end
+end
+
