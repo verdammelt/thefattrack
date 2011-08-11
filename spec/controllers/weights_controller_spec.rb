@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe WeightsController do
   let(:weight) { mock_model("Weight") }
-  let(:recent_weights) { [mock_model("Weight", :date => Date.today), mock_model("Weight", :date => Date.today.next_day)]}
+  let(:recent_weights) { [mock_model("Weight", :date => Date.today), mock_model("Weight", :date => Date.today.next)]}
   
   before do
     Weight.stub(:today => weight)
@@ -23,10 +23,11 @@ describe WeightsController do
 
   describe "PUT update" do
     it "sets today's weight" do
-      weight.stub(:date).and_return(Date.today.prev_day)
+      prev_day = Date.today - 1
+      weight.stub(:date).and_return(prev_day)
       Weight.should_not_receive(:today)
-      Weight.should_receive(:update_weight).with(Date.today.prev_day, 190.5)
-      put :update, :id => 1, :weight => { "weight" => "190.5", "date" => Date.today.prev_day.to_s }
+      Weight.should_receive(:update_weight).with(prev_day, 190.5)
+      put :update, :id => 1, :weight => { "weight" => "190.5", "date" => prev_day.to_s }
     end
 
     it "redirects to index page" do

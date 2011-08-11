@@ -19,14 +19,14 @@ describe Weight do
     end
     
     it "trend set to latest trend weight" do
-      Weight.create :date => Date.today.prev_day, :trend => 500
+      Weight.create :date => Date.today-1, :trend => 500
       Weight.today.trend.should == 500
     end
   end
 
   context "#weight=" do 
     it "calculates trend when weight is set" do
-      Weight.create(:date => Date.today.prev_day, :trend => 190)
+      Weight.create(:date => Date.today-1, :trend => 190)
       w = Weight.new(:date => Date.today, :weight => 190)
       w.weight = 200
       w.trend.should == 191
@@ -41,7 +41,7 @@ describe Weight do
 
   context "trend calculation" do
     it "always calculates based upon old trend" do
-      Weight.create :date => Date.today.prev_day, :trend => 200
+      Weight.create :date => Date.today-1, :trend => 200
       w = Weight.create :date => Date.today, :weight => 190, :trend => 199
       w.weight = 190
       w.trend.should == 199
@@ -56,13 +56,13 @@ describe Weight do
 
   context "recent weights" do
     it "they are in order by date (newest first)" do
-      Weight.create :date => Date.today.prev_day
+      Weight.create :date => Date.today-1
       Weight.create :date => Date.today
-      Weight.create :date => Date.today.prev_day.prev_day
-      Weight.create :date => Date.today.next_day
+      Weight.create :date => Date.today-2
+      Weight.create :date => Date.today+1
 
       Weight.recent.collect {|d| d.date }.should ==
-        [Date.today.next_day, Date.today.prev_day, Date.today.prev_day.prev_day]
+        [Date.today+1, Date.today-1, Date.today-2]
     end
   end
 
@@ -82,19 +82,19 @@ describe Weight do
     end
 
     it "sets trend on saved weight correctly" do
-      Weight.create :date => Date.today.prev_day.prev_day, :weight => 190, :trend => 190
-      Weight.create :date => Date.today.prev_day, :weight => 190, :trend => 190
+      Weight.create :date => Date.today-1-1, :weight => 190, :trend => 190
+      Weight.create :date => Date.today-1, :weight => 190, :trend => 190
 
-      Weight.update_weight Date.today.prev_day, 189
+      Weight.update_weight Date.today-1, 189
 
-      Weight.find_by_date(Date.today.prev_day).trend.should == 189.9
+      Weight.find_by_date(Date.today-1).trend.should == 189.9
     end
 
     it "updates all trends newer than saved weight" do
-      Weight.create :date => Date.today.prev_day, :weight => 190, :trend => 190
+      Weight.create :date => Date.today-1, :weight => 190, :trend => 190
       Weight.create :date => Date.today, :weight => 189, :trend => 189.9
 
-      Weight.update_weight(Date.today.prev_day, 189)
+      Weight.update_weight(Date.today-1, 189)
 
       Weight.find_by_date(Date.today).trend.should == 189
     end

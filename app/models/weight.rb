@@ -30,7 +30,7 @@ class Weight < ActiveRecord::Base
   end
 
   def self.previous_trend date
-    trend_or_nil recent.find { |w| w.date < date }
+    trend_or_nil recent.find { |w| w.date < (date || Date.new) }
   end
 
   def self.latest_trend

@@ -22,7 +22,7 @@ module WeightGraph
 
   private
   def make_row_data w
-    trend = w.trend.round(2) unless w.trend.nil?
+    trend = (w.trend*100).round/100.0 unless w.trend.nil?
     [w.date, w.weight, trend] 
   end
 end

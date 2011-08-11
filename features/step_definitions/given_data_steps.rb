@@ -5,7 +5,7 @@ Given /^that today is (\d+)\-(\d+)\-(\d+)$/ do |year, month, day|
 end
 
 Given /^that the previous trend weight was ([\d.]+)$/ do |trend|
-  Weight.new(:date => Date.today.prev_day, :trend => trend).save
+  Weight.new(:date => Date.today-1, :trend => trend).save
 end
 
 Given /^that today's weight is (\d+)$/ do |weight|
