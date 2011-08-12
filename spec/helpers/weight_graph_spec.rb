@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'weight_graph'
 
 class View
   include WeightGraph

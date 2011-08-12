@@ -1,6 +1,8 @@
 include ActionView::Helpers::TagHelper
+
 module WeightGraph
   include GoogleVisualization
+  include Round
 
   def setup_graph
     include_visualization_api
@@ -22,7 +24,7 @@ module WeightGraph
 
   private
   def make_row_data w
-    trend = (w.trend*100).round/100.0 unless w.trend.nil?
+    trend = round_for_display w.trend
     [w.date, w.weight, trend] 
   end
 end
