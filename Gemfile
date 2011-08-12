@@ -8,6 +8,7 @@ gem 'rake'
 gem 'gvis', '>= 2.0.0'
 
 group :development, :test do
+  gem 'rcov'
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'

@@ -13,7 +13,5 @@
 - show goal weight (and goal date)
 - add flog/flay/etc to rake to use easily
 - multiple users
-- coverage
 - flog/flay/roodi/reek to keep code clean
 - logo from wendy
-- fix problem with autotest & cucumber

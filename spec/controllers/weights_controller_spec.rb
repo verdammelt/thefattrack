@@ -20,11 +20,18 @@ describe WeightsController do
       assigns[:recent_weights].should == recent_weights
     end
   end
+  
+  describe "PUT create" do
+    it "creates a weight" do
+      today = Date.today
+      Weight.should_receive(:update_weight).with(today, 190.5)
+      put :create, :weight => { "weight" => "190.5", "date" => today.to_s }
+    end
+  end
 
   describe "PUT update" do
-    it "sets today's weight" do
+    it "sets the weight" do
       prev_day = Date.today - 1
-      weight.stub(:date).and_return(prev_day)
       Weight.should_not_receive(:today)
       Weight.should_receive(:update_weight).with(prev_day, 190.5)
       put :update, :id => 1, :weight => { "weight" => "190.5", "date" => prev_day.to_s }
