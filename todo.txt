@@ -1,0 +1,28 @@
+* Readme / About Files
+    - about page
+    - git readme page
+
+* Goal Weight
+    - compute when goal will be reached
+    - show goal weight (and goal date)
+
+* BMI Calc
+
+* Misc Stuff
+    - more careful testing around graph (i.e. javascript type testing)
+    - deal with possibility that weight.save fails
+    - add flog/flay/etc to rake to use easily
+    - flog/flay/roodi/reek to keep code clean
+
+* Import / Export CSV Data
+
+* Multiple Users
+    - user prefs (for BMI, weight averaging ...)
+
+* UI Improvements
+    - add email address to page
+    - click graph to get details of weight/notes
+    - logo from wendy
+
+* Notes on Weights
+
