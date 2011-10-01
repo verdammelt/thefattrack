@@ -1,6 +1,5 @@
 * Readme / About Files
     - about page
-    - git readme page
 
 * Goal Weight
     - compute when goal will be reached
