@@ -15,4 +15,6 @@ group :development, :test do
   gem 'escape_utils', '~> 0.2.3'
   gem 'launchy', '~> 2.0.4'
   gem 'timecop', '~> 0.3.5'
+  gem 'pry'
+  gem 'pry-rails'
 end
