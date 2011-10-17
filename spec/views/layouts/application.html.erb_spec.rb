@@ -16,4 +16,9 @@ describe 'layouts/application.html.erb' do
     view.should_receive(:render_graph).once
     render
   end
+
+  it "has link to about page" do
+    render
+    rendered.should have_link 'About The Fat Track', 'about'
+  end
 end
