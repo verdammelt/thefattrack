@@ -8,4 +8,4 @@ require 'rake'
 Thinner::Application.load_tasks
 
 
-default = [:spec, :cucumber]
+task :default => [:spec, :cucumber]
