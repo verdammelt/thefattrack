@@ -6,3 +6,6 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 Thinner::Application.load_tasks
+
+
+default = [:spec, :cucumber]
