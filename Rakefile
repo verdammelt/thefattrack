@@ -7,5 +7,5 @@ require 'rake'
 
 Thinner::Application.load_tasks
 
-
-task :default => [:spec, :cucumber]
+desc "Task for the travis CI service http://travis-ci.org"
+task :travis => ['db:drop', 'db:create', 'db:migrate', 'spec', 'cucumber']
