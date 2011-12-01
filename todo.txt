@@ -1,5 +1,5 @@
-* Readme / About Files
-    - about page
+* a useful/sane way to set the version number somewhere
+    - and show on about screen
 
 * Goal Weight
     - compute when goal will be reached
