@@ -22,6 +22,8 @@
     - add email address to page
     - click graph to get details of weight/notes
     - logo from wendy
+    - twitter bootstrap to make it nicer?
 
 * Notes on Weights
 
+* Options for weight graph: show all or 30 day (with start/end date).
