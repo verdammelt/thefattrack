@@ -5,12 +5,12 @@
     - compute when goal will be reached
     - show goal weight (and goal date)
 
-* BMI Calc
+* BMI Calculation
 
 * Misc Stuff
     - more careful testing around graph (i.e. javascript type testing)
     - deal with possibility that weight.save fails
-    - add flog/flay/etc to rake to use easily
+    - add flog/flay/etc. to rake to use easily
     - flog/flay/roodi/reek to keep code clean
 
 * Import / Export CSV Data
@@ -21,9 +21,15 @@
 * UI Improvements
     - add email address to page
     - click graph to get details of weight/notes
-    - logo from wendy
+    - logo from Wendy
     - twitter bootstrap to make it nicer?
 
 * Notes on Weights
 
 * Options for weight graph: show all or 30 day (with start/end date).
+
+* refactor to have view deal with presenter object for weights - so that
+rounding is not called from the view.
+
+* don't save the trend data - unneeded - calculate on the fly.
+
