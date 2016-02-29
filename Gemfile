@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.2.2'
 
 gem 'rails', '3.0.20'
 gem 'sqlite3', '1.3.4'
@@ -7,7 +8,7 @@ gem 'rake', '>= 0.9.2'
 gem 'gvis', '>= 2.0.0'
 
 group :development, :test do
-  gem 'rcov', '~> 0.9.10'
+  #gem 'rcov', '~> 0.9.10'
   gem 'rspec-rails', '~> 2.6.1'
   gem 'cucumber-rails', '~> 1.0.2'
   gem 'database_cleaner', '~> 0.6.7'

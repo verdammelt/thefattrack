@@ -1,5 +1,7 @@
 class WeightsController < ApplicationController
   def index
+    config.relative_url_root = '/'
+
     @today = Weight.today
     @recent_weights = Weight.recent
   end
